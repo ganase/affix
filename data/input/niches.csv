@@ -1,0 +1,6 @@
+niche_id,niche_name,description,monetization_type,ymyl_risk,competition_level,notes
+ai_dev_tools,AI開発ツール,AIコーディング支援や開発者向け自動化ツール,SaaS affiliate,low,high,機能や料金は必ず公式情報で確認する
+bi_tools,BIツール,企業向けBIやレポーティングツール,lead generation,medium,high,導入条件やライセンスは変わりやすい
+local_ai_rag,ローカルAI/RAG,社内文書検索やローカルLLM活用,consulting lead,medium,medium,セキュリティ要件は個別確認が必要
+b2b_saas,B2B SaaS,業務効率化SaaSや比較検討コンテンツ,SaaS affiliate,low,high,ランキング表現は根拠が必要
+online_learning,オンライン学習,プログラミングやデータ分析の学習サービス,course affiliate,low,medium,受講料やキャンペーンは要確認

@@ -1,0 +1,152 @@
+[
+  {
+    "article_id": "ai_dev_tools-kw_codex_usage",
+    "niche_id": "ai_dev_tools",
+    "niche_name": "AI開発ツール",
+    "keyword": "Codex 使い方",
+    "search_intent": "使い方を理解したい",
+    "funnel_stage": "awareness",
+    "article_type": "how_to",
+    "suggested_title": "Codex 使い方の基礎と選び方: 実践ガイド",
+    "target_reader": "AI開発ツールについて学び始め、基本的な進め方を理解したい読者。",
+    "article_outline": [
+      "Codex 使い方で解決したい課題",
+      "AI開発ツールの基本と検討前提",
+      "選定時に確認すべきポイント",
+      "導入・利用時の注意点",
+      "候補サービスや関連ツールを見る前のチェック項目",
+      "人間レビューで確認すべき事実関係"
+    ],
+    "affiliate_angle": "SaaS affiliateにつながる導入支援・関連ツール紹介導線。価格や機能は公式確認後に記載する。",
+    "human_review_required": true,
+    "risk_notes": "Generated content is a draft and must be reviewed before publishing. Do not add prices, rankings, feature claims, endorsements, or user reviews without evidence. Niche note: 機能や料金は必ず公式情報で確認する Keyword note: 公式仕様が変わる可能性あり",
+    "fact_check_items": [
+      "Official product or service names",
+      "Current pricing and plan availability",
+      "Current feature availability",
+      "Affiliate program terms and disclosure requirements",
+      "Claims related to Codex 使い方",
+      "Risk level for AI開発ツール: low"
+    ]
+  },
+  {
+    "article_id": "ai_dev_tools-kw_claude_code_compare",
+    "niche_id": "ai_dev_tools",
+    "niche_name": "AI開発ツール",
+    "keyword": "Claude Code 比較",
+    "search_intent": "類似ツールを比較したい",
+    "funnel_stage": "consideration",
+    "article_type": "comparison",
+    "suggested_title": "Claude Code 比較の基礎と選び方: 比較ガイド",
+    "target_reader": "AI開発ツールを比較検討しており、導入判断の材料を探している担当者。",
+    "article_outline": [
+      "Claude Code 比較で解決したい課題",
+      "AI開発ツールの基本と検討前提",
+      "選定時に確認すべきポイント",
+      "導入・利用時の注意点",
+      "候補サービスや関連ツールを見る前のチェック項目",
+      "人間レビューで確認すべき事実関係"
+    ],
+    "affiliate_angle": "SaaS affiliateにつながる比較検討導線。ただし順位や優劣は根拠確認後に限定する。",
+    "human_review_required": true,
+    "risk_notes": "Generated content is a draft and must be reviewed before publishing. Do not add prices, rankings, feature claims, endorsements, or user reviews without evidence. Niche note: 機能や料金は必ず公式情報で確認する Keyword note: 比較項目の事実確認が必要",
+    "fact_check_items": [
+      "Official product or service names",
+      "Current pricing and plan availability",
+      "Current feature availability",
+      "Affiliate program terms and disclosure requirements",
+      "Claims related to Claude Code 比較",
+      "Risk level for AI開発ツール: low"
+    ]
+  },
+  {
+    "article_id": "bi_tools-kw_powerbi_report_server",
+    "niche_id": "bi_tools",
+    "niche_name": "BIツール",
+    "keyword": "Power BI Report Server 導入",
+    "search_intent": "オンプレミスBI導入を検討したい",
+    "funnel_stage": "consideration",
+    "article_type": "guide",
+    "suggested_title": "Power BI Report Server 導入の基礎と選び方: 導入ガイド",
+    "target_reader": "BIツールを比較検討しており、導入判断の材料を探している担当者。",
+    "article_outline": [
+      "Power BI Report Server 導入で解決したい課題",
+      "BIツールの基本と検討前提",
+      "選定時に確認すべきポイント",
+      "導入・利用時の注意点",
+      "候補サービスや関連ツールを見る前のチェック項目",
+      "人間レビューで確認すべき事実関係"
+    ],
+    "affiliate_angle": "lead generationにつながる導入支援・関連ツール紹介導線。価格や機能は公式確認後に記載する。",
+    "human_review_required": true,
+    "risk_notes": "Generated content is a draft and must be reviewed before publishing. Do not add prices, rankings, feature claims, endorsements, or user reviews without evidence. Potential compliance or YMYL-adjacent risk: require extra human review. Niche note: 導入条件やライセンスは変わりやすい Keyword note: ライセンス条件の確認が必要",
+    "fact_check_items": [
+      "Official product or service names",
+      "Current pricing and plan availability",
+      "Current feature availability",
+      "Affiliate program terms and disclosure requirements",
+      "Claims related to Power BI Report Server 導入",
+      "Risk level for BIツール: medium"
+    ]
+  },
+  {
+    "article_id": "bi_tools-kw_tableau_powerbi",
+    "niche_id": "bi_tools",
+    "niche_name": "BIツール",
+    "keyword": "Tableau Power BI 比較",
+    "search_intent": "BIツール選定の材料がほしい",
+    "funnel_stage": "consideration",
+    "article_type": "comparison",
+    "suggested_title": "Tableau Power BI 比較の基礎と選び方: 比較ガイド",
+    "target_reader": "BIツールを比較検討しており、導入判断の材料を探している担当者。",
+    "article_outline": [
+      "Tableau Power BI 比較で解決したい課題",
+      "BIツールの基本と検討前提",
+      "選定時に確認すべきポイント",
+      "導入・利用時の注意点",
+      "候補サービスや関連ツールを見る前のチェック項目",
+      "人間レビューで確認すべき事実関係"
+    ],
+    "affiliate_angle": "lead generationにつながる比較検討導線。ただし順位や優劣は根拠確認後に限定する。",
+    "human_review_required": true,
+    "risk_notes": "Generated content is a draft and must be reviewed before publishing. Do not add prices, rankings, feature claims, endorsements, or user reviews without evidence. Potential compliance or YMYL-adjacent risk: require extra human review. Niche note: 導入条件やライセンスは変わりやすい Keyword note: ランキング断定を避ける",
+    "fact_check_items": [
+      "Official product or service names",
+      "Current pricing and plan availability",
+      "Current feature availability",
+      "Affiliate program terms and disclosure requirements",
+      "Claims related to Tableau Power BI 比較",
+      "Risk level for BIツール: medium"
+    ]
+  },
+  {
+    "article_id": "local_ai_rag-kw_local_rag_build",
+    "niche_id": "local_ai_rag",
+    "niche_name": "ローカルAI/RAG",
+    "keyword": "ローカルRAG 作り方",
+    "search_intent": "ローカルRAGの構築手順を知りたい",
+    "funnel_stage": "awareness",
+    "article_type": "how_to",
+    "suggested_title": "ローカルRAG 作り方の基礎と選び方: 実践ガイド",
+    "target_reader": "ローカルAI/RAGについて学び始め、基本的な進め方を理解したい読者。",
+    "article_outline": [
+      "ローカルRAG 作り方で解決したい課題",
+      "ローカルAI/RAGの基本と検討前提",
+      "選定時に確認すべきポイント",
+      "導入・利用時の注意点",
+      "候補サービスや関連ツールを見る前のチェック項目",
+      "人間レビューで確認すべき事実関係"
+    ],
+    "affiliate_angle": "consulting leadにつながる導入支援・関連ツール紹介導線。価格や機能は公式確認後に記載する。",
+    "human_review_required": true,
+    "risk_notes": "Generated content is a draft and must be reviewed before publishing. Do not add prices, rankings, feature claims, endorsements, or user reviews without evidence. Potential compliance or YMYL-adjacent risk: require extra human review. Niche note: セキュリティ要件は個別確認が必要 Keyword note: セキュリティと運用リスクに注意",
+    "fact_check_items": [
+      "Official product or service names",
+      "Current pricing and plan availability",
+      "Current feature availability",
+      "Affiliate program terms and disclosure requirements",
+      "Claims related to ローカルRAG 作り方",
+      "Risk level for ローカルAI/RAG: medium"
+    ]
+  }
+]

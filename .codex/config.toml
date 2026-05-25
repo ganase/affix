@@ -1,0 +1,22 @@
+# Project-local Codex policy notes for Affix.
+# Exact Codex config keys may vary by runtime version; these values document the
+# intended safe operating mode for this repository.
+
+sandbox_mode = "workspace-write"
+approval_policy = "on-request"
+network_access = false
+
+[project]
+name = "affix"
+purpose = "Automated affiliate website operation system, review-first and safe by default."
+
+[safety]
+handle_secrets = false
+avoid_destructive_operations = true
+require_human_approval_before_publish = true
+do_not_edit_env_directly = true
+
+[paths]
+data = "data"
+content = "content"
+logs = "logs"
