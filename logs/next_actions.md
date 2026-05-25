@@ -1,11 +1,29 @@
-# Next Actions
+# 次のアクション
 
-- Run `python run_affix.py generate` to create the first article idea outputs.
-- Review generated drafts for factual accuracy and affiliate compliance.
-- Decide whether WordPress, static site export, or GitHub Actions should be implemented next.
+- `python run_affix.py generate` を実行して、最初の記事案を生成してください。
+- 生成された下書きについて、事実確認とアフィリエイト表記の確認を行ってください。
+- 次にWordPress連携、静的サイト出力、GitHub Actions化のどれを実装するか決めてください。
 
 ## 2026-05-24 02:33:35 UTC
 
-- Review generated Markdown drafts and mark fact-check items.
-- Add real keyword research exports to `data/input/keywords.csv`.
-- Design a human-approved publishing workflow before adding WordPress or static site automation.
+- 生成されたMarkdown下書きを確認し、事実確認項目をチェックしてください。
+- 実際のキーワード調査結果を `data/input/keywords.csv` に追加してください。
+- WordPressや静的サイト連携を追加する前に、人間承認つきの公開フローを設計してください。
+
+## 2026-05-25 12:05:12 UTC
+
+- 生成されたMarkdown下書きを確認し、事実確認項目をチェックしてください。
+- 実際のキーワード調査結果を `data/input/keywords.csv` に追加してください。
+- WordPressや静的サイト連携を追加する前に、人間承認つきの公開フローを設計してください。
+
+## 2026-05-25 12:07:07 UTC
+
+- 生成されたMarkdown下書きを確認し、事実確認項目をチェックしてください。
+- 実際のキーワード調査結果を `data/input/keywords.csv` に追加してください。
+- WordPressや静的サイト連携を追加する前に、人間承認つきの公開フローを設計してください。
+
+## 2026-05-25 12:07:40 UTC
+
+- 生成されたMarkdown下書きを確認し、事実確認項目をチェックしてください。
+- 実際のキーワード調査結果を `data/input/keywords.csv` に追加してください。
+- WordPressや静的サイト連携を追加する前に、人間承認つきの公開フローを設計してください。

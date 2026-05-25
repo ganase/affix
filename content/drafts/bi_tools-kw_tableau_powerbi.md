@@ -10,11 +10,11 @@ BIツール選定の材料がほしい
 
 ## 収益導線
 
-lead generationにつながる比較検討導線。ただし順位や優劣は根拠確認後に限定する。
+リード獲得につながる比較検討導線。ただし順位や優劣は根拠確認後に限定する。
 
 ## 注意事項
 
-Generated content is a draft and must be reviewed before publishing. Do not add prices, rankings, feature claims, endorsements, or user reviews without evidence. Potential compliance or YMYL-adjacent risk: require extra human review. Niche note: 導入条件やライセンスは変わりやすい Keyword note: ランキング断定を避ける
+生成内容は下書きであり、公開前に必ず人間が確認する必要があります。 根拠のない価格、ランキング、機能説明、公式推薦、利用者レビューは追加しないでください。 コンプライアンスまたはYMYL隣接リスクがあるため、追加の人間レビューが必要です。 ジャンルメモ: 導入条件やライセンスは変わりやすい キーワードメモ: ランキング断定を避ける
 
 ## 見出し案
 
@@ -43,12 +43,12 @@ Generated content is a draft and must be reviewed before publishing. Do not add 
 
 ## 事実確認が必要な項目
 
-- [ ] Official product or service names
-- [ ] Current pricing and plan availability
-- [ ] Current feature availability
-- [ ] Affiliate program terms and disclosure requirements
-- [ ] Claims related to Tableau Power BI 比較
-- [ ] Risk level for BIツール: medium
+- [ ] 公式の商品名またはサービス名
+- [ ] 現在の価格とプラン提供状況
+- [ ] 現在提供されている機能
+- [ ] アフィリエイトプログラムの規約と開示要件
+- [ ] 「Tableau Power BI 比較」に関する主張
+- [ ] BIツールのリスク区分: 中
 
 ## 公開前チェックリスト
 

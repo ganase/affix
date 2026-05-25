@@ -1,11 +1,29 @@
-# Assumptions
+# 仮定
 
-- Initial implementation uses only Python standard library to avoid dependency and network risk.
-- Generated article drafts are review artifacts, not publish-ready articles.
-- Sample data is illustrative and requires human fact-checking before production use.
+- 初期実装では、依存関係とネットワーク利用のリスクを避けるため、Python標準ライブラリだけを使います。
+- 生成された記事下書きは公開用ではなく、レビュー用の成果物として扱います。
+- サンプルデータは説明用であり、本番利用前に人間による事実確認が必要です。
 
 ## 2026-05-24 02:33:35 UTC
 
-- Used local CSV files as the source of truth because external network access is disabled.
-- Treated every generated draft as requiring human review before publication.
-- Chose deterministic template-based generation for safety, simplicity, and testability.
+- 外部ネットワークを使わない前提のため、ローカルCSVを唯一の入力元として扱いました。
+- 生成されたすべての下書きは、公開前に人間レビューが必要なものとして扱いました。
+- 安全性、単純さ、テストしやすさを優先して、決定的なテンプレート生成を採用しました。
+
+## 2026-05-25 12:05:12 UTC
+
+- 外部ネットワークを使わない前提のため、ローカルCSVを唯一の入力元として扱いました。
+- 生成されたすべての下書きは、公開前に人間レビューが必要なものとして扱いました。
+- 安全性、単純さ、テストしやすさを優先して、決定的なテンプレート生成を採用しました。
+
+## 2026-05-25 12:07:07 UTC
+
+- 外部ネットワークを使わない前提のため、ローカルCSVを唯一の入力元として扱いました。
+- 生成されたすべての下書きは、公開前に人間レビューが必要なものとして扱いました。
+- 安全性、単純さ、テストしやすさを優先して、決定的なテンプレート生成を採用しました。
+
+## 2026-05-25 12:07:40 UTC
+
+- 外部ネットワークを使わない前提のため、ローカルCSVを唯一の入力元として扱いました。
+- 生成されたすべての下書きは、公開前に人間レビューが必要なものとして扱いました。
+- 安全性、単純さ、テストしやすさを優先して、決定的なテンプレート生成を採用しました。

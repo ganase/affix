@@ -1,61 +1,61 @@
-# System Architecture
+# システム構成
 
 ```mermaid
 flowchart TD
-    User["Human reviewer / operator"] --> CLI["run_affix.py generate"]
+    A["管理者・レビュアー"] --> B["run_affix.py generate"]
 
-    CLI --> AffixCLI["src/affix/cli.py"]
-    AffixCLI --> Loaders["loaders.py<br/>Read input CSV"]
-    AffixCLI --> Generator["generator.py<br/>Generate article ideas"]
-    AffixCLI --> Writers["writer.py<br/>Write outputs"]
-    AffixCLI --> Logger["logger.py<br/>Append operation logs"]
+    B --> C["src/affix/cli.py"]
+    C --> D["loaders.py<br/>入力CSVを読み込み"]
+    C --> E["generator.py<br/>記事案を生成"]
+    C --> F["writer.py<br/>出力ファイルを書き込み"]
+    C --> G["logger.py<br/>運用ログを追記"]
 
-    Niches["data/input/niches.csv<br/>Niche candidates"] --> Loaders
-    Keywords["data/input/keywords.csv<br/>Keyword candidates"] --> Loaders
+    H["data/input/niches.csv<br/>ジャンル候補"] --> D
+    I["data/input/keywords.csv<br/>キーワード候補"] --> D
 
-    Loaders --> Models["models.py<br/>Niche / Keyword / ArticleIdea"]
-    Models --> Generator
+    D --> J["models.py<br/>ジャンル / キーワード / 記事案"]
+    J --> E
 
-    Generator --> ArticleIdeas["Article ideas<br/>review-first structured data"]
+    E --> K["記事案<br/>レビュー前提の構造化データ"]
 
-    ArticleIdeas --> Writers
-    Writers --> JSON["data/output/article_ideas.json"]
-    Writers --> CSV["data/output/article_ideas.csv"]
-    Writers --> Drafts["content/drafts/*.md<br/>Markdown review drafts"]
+    K --> F
+    F --> L["data/output/article_ideas.json"]
+    F --> M["data/output/article_ideas.csv"]
+    F --> N["content/drafts/*.md<br/>レビュー用Markdown下書き"]
 
-    Logger --> Assumptions["logs/assumptions.md"]
-    Logger --> Progress["logs/progress.md"]
-    Logger --> Risks["logs/risks.md"]
-    Logger --> NextActions["logs/next_actions.md"]
+    G --> O["logs/assumptions.md"]
+    G --> P["logs/progress.md"]
+    G --> Q["logs/risks.md"]
+    G --> R["logs/next_actions.md"]
 
-    Drafts --> User
-    JSON --> FutureAutomation["Future automation"]
-    CSV --> FutureAutomation
+    N --> A
+    L --> S["将来の自動化"]
+    M --> S
 
-    FutureAutomation -. explicit approval required .-> WordPress["WordPress draft publishing"]
-    FutureAutomation -. explicit approval required .-> StaticSite["Static site export"]
-    FutureAutomation -. scheduled checks .-> GitHubActions["GitHub Actions"]
+    S -. 明示的な承認が必要 .-> T["WordPress下書き投稿"]
+    S -. 明示的な承認が必要 .-> U["静的サイト出力"]
+    S -. 定期実行 .-> V["GitHub Actions"]
 
-    AGENTS["AGENTS.md<br/>Autonomous work rules"] -. guides .-> AffixCLI
-    Config[".codex/config.toml<br/>Safe local policy notes"] -. constrains .-> AffixCLI
+    W["AGENTS.md<br/>自律作業ルール"] -. 作業方針 .-> C
+    X[".codex/config.toml<br/>安全寄りのローカル方針"] -. 制約 .-> C
 
-    classDef input fill:#eef7ff,stroke:#4b8bbe,color:#111;
-    classDef code fill:#f5f5f5,stroke:#777,color:#111;
-    classDef output fill:#f0fff4,stroke:#4c9a62,color:#111;
-    classDef log fill:#fff8e6,stroke:#b58b00,color:#111;
-    classDef future fill:#f8f0ff,stroke:#8a5cc2,color:#111;
-    classDef safety fill:#fff0f0,stroke:#cc6666,color:#111;
+    classDef c1 fill:#eef7ff,stroke:#4b8bbe,color:#111;
+    classDef c2 fill:#f5f5f5,stroke:#777,color:#111;
+    classDef c3 fill:#f0fff4,stroke:#4c9a62,color:#111;
+    classDef c4 fill:#fff8e6,stroke:#b58b00,color:#111;
+    classDef c5 fill:#f8f0ff,stroke:#8a5cc2,color:#111;
+    classDef c6 fill:#fff0f0,stroke:#cc6666,color:#111;
 
-    class Niches,Keywords input;
-    class CLI,AffixCLI,Loaders,Generator,Writers,Logger,Models code;
-    class JSON,CSV,Drafts,ArticleIdeas output;
-    class Assumptions,Progress,Risks,NextActions log;
-    class FutureAutomation,WordPress,StaticSite,GitHubActions future;
-    class AGENTS,Config,User safety;
+    class H,I c1;
+    class B,C,D,E,F,G,J c2;
+    class K,L,M,N c3;
+    class O,P,Q,R c4;
+    class S,T,U,V c5;
+    class A,W,X c6;
 ```
 
-## Notes
+## メモ
 
-- Current automation stops at review-ready article idea and Markdown draft generation.
-- Publishing integrations are intentionally future components and require explicit human approval.
-- Generated content is treated as draft material until facts, affiliate disclosure, and YMYL risks are reviewed.
+- 現在の自動化は、レビュー用の記事案とMarkdown下書きの生成までで止めます。
+- 公開連携は将来の機能であり、実装する場合も明示的な人間承認を必須にします。
+- 生成内容は、事実確認、アフィリエイト開示、YMYLリスク確認が終わるまで下書きとして扱います。

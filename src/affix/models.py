@@ -1,4 +1,4 @@
-"""Data models for Affix."""
+"""Affixで扱うデータモデル。"""
 
 from __future__ import annotations
 

@@ -1,4 +1,4 @@
-"""Article idea generation."""
+"""記事案の生成処理。"""
 
 from __future__ import annotations
 
@@ -7,7 +7,7 @@ import re
 from .models import ArticleIdea, Keyword, Niche
 
 
-YMYL_TERMS = ("finance", "health", "medicine", "insurance", "legal", "investment", "金融", "健康", "医療", "保険", "法律", "投資")
+YMYL_TERMS = ("金融", "健康", "医療", "保険", "法律", "投資")
 
 
 def generate_article_ideas(niches: list[Niche], keywords: list[Keyword]) -> list[ArticleIdea]:
@@ -60,18 +60,18 @@ def _make_article_id(niche_id: str, keyword_id: str, keyword: str) -> str:
 
 def _article_type_label(article_type: str) -> str:
     labels = {
-        "how_to": "実践ガイド",
-        "comparison": "比較ガイド",
-        "guide": "導入ガイド",
-        "review": "レビュー下書き",
+        "実践ガイド": "実践ガイド",
+        "比較ガイド": "比較ガイド",
+        "導入ガイド": "導入ガイド",
+        "レビュー下書き": "レビュー下書き",
     }
     return labels.get(article_type, "解説ガイド")
 
 
 def _target_reader(keyword: Keyword, niche: Niche) -> str:
-    if keyword.funnel_stage == "consideration":
+    if keyword.funnel_stage == "比較検討":
         return f"{niche.niche_name}を比較検討しており、導入判断の材料を探している担当者。"
-    if keyword.funnel_stage == "decision":
+    if keyword.funnel_stage == "意思決定":
         return f"{niche.niche_name}の導入直前で、リスクと確認事項を整理したい担当者。"
     return f"{niche.niche_name}について学び始め、基本的な進め方を理解したい読者。"
 
@@ -88,34 +88,34 @@ def _outline(keyword: Keyword, niche: Niche) -> list[str]:
 
 
 def _affiliate_angle(niche: Niche, keyword: Keyword) -> str:
-    if keyword.article_type == "comparison":
+    if keyword.article_type == "比較ガイド":
         return f"{niche.monetization_type}につながる比較検討導線。ただし順位や優劣は根拠確認後に限定する。"
-    if keyword.article_type in {"how_to", "guide"}:
+    if keyword.article_type in {"実践ガイド", "導入ガイド"}:
         return f"{niche.monetization_type}につながる導入支援・関連ツール紹介導線。価格や機能は公式確認後に記載する。"
     return f"{niche.monetization_type}につながる補助導線。読者利益と開示を優先する。"
 
 
 def _risk_notes(niche: Niche, keyword: Keyword) -> str:
     notes = [
-        "Generated content is a draft and must be reviewed before publishing.",
-        "Do not add prices, rankings, feature claims, endorsements, or user reviews without evidence.",
+        "生成内容は下書きであり、公開前に必ず人間が確認する必要があります。",
+        "根拠のない価格、ランキング、機能説明、公式推薦、利用者レビューは追加しないでください。",
     ]
     risk_text = f"{niche.ymyl_risk} {niche.description} {keyword.keyword} {keyword.notes}".lower()
-    if niche.ymyl_risk.lower() in {"medium", "high"} or any(term.lower() in risk_text for term in YMYL_TERMS):
-        notes.append("Potential compliance or YMYL-adjacent risk: require extra human review.")
+    if niche.ymyl_risk in {"中", "高"} or any(term in risk_text for term in YMYL_TERMS):
+        notes.append("コンプライアンスまたはYMYL隣接リスクがあるため、追加の人間レビューが必要です。")
     if niche.notes:
-        notes.append(f"Niche note: {niche.notes}")
+        notes.append(f"ジャンルメモ: {niche.notes}")
     if keyword.notes:
-        notes.append(f"Keyword note: {keyword.notes}")
+        notes.append(f"キーワードメモ: {keyword.notes}")
     return " ".join(notes)
 
 
 def _fact_check_items(niche: Niche, keyword: Keyword) -> list[str]:
     return [
-        "Official product or service names",
-        "Current pricing and plan availability",
-        "Current feature availability",
-        "Affiliate program terms and disclosure requirements",
-        f"Claims related to {keyword.keyword}",
-        f"Risk level for {niche.niche_name}: {niche.ymyl_risk}",
+        "公式の商品名またはサービス名",
+        "現在の価格とプラン提供状況",
+        "現在提供されている機能",
+        "アフィリエイトプログラムの規約と開示要件",
+        f"「{keyword.keyword}」に関する主張",
+        f"{niche.niche_name}のリスク区分: {niche.ymyl_risk}",
     ]

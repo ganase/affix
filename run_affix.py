@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Run the Affix CLI from a source checkout."""
+"""ソースツリーからAffix CLIを実行します。"""
 
 from __future__ import annotations
 

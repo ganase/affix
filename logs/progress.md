@@ -1,9 +1,27 @@
-# Progress
+# 進捗
 
-- Initialized Affix project foundation with review-first affiliate content automation scope.
+- レビュー前提のアフィリエイトコンテンツ自動化を目的として、Affixのプロジェクト基盤を初期化しました。
 
 ## 2026-05-24 02:33:35 UTC
 
-- Generated 5 article ideas.
-- Wrote 5 Markdown drafts.
-- Updated JSON and CSV outputs under `data/output/`.
+- 5件の記事案を生成しました。
+- 5件のMarkdown下書きを書き出しました。
+- `data/output/` 配下のJSONとCSVを更新しました。
+
+## 2026-05-25 12:05:12 UTC
+
+- 5件の記事案を生成しました。
+- 5件のMarkdown下書きを書き出しました。
+- `data/output/` 配下のJSONとCSVを更新しました。
+
+## 2026-05-25 12:07:07 UTC
+
+- 5件の記事案を生成しました。
+- 5件のMarkdown下書きを書き出しました。
+- `data/output/` 配下のJSONとCSVを更新しました。
+
+## 2026-05-25 12:07:40 UTC
+
+- 5件の記事案を生成しました。
+- 5件のMarkdown下書きを書き出しました。
+- `data/output/` 配下のJSONとCSVを更新しました。

@@ -1,99 +1,99 @@
 # AGENTS.md
 
-## Project goal
+## プロジェクト目標
 
-This repository builds Affix, a minimal automated affiliate website operation system.
+このリポジトリは、Affixというアフィリエイトサイト自動運営システムの最小構成を育てるためのものです。
 
-The system should help with:
-- market and niche research inputs
-- keyword candidate management
-- article idea generation
-- review-first Markdown draft output
-- affiliate angle planning
-- logging assumptions, progress, risks, and next actions
-- future WordPress, static site, and GitHub Actions integration
+このシステムは次の作業を支援します。
 
-Affix must not auto-publish articles without explicit human approval.
+- 市場・ジャンル調査の入力管理
+- キーワード候補の管理
+- 記事案の生成
+- レビュー前提のMarkdown下書き出力
+- アフィリエイト導線案の整理
+- 仮定、進捗、リスク、次アクションのログ保存
+- 将来のWordPress、静的サイト、GitHub Actions連携
 
-## Working style
+Affixは、明示的な人間承認なしに記事を自動公開してはいけません。
 
-Act autonomously as much as possible.
+## 作業スタイル
 
-Do not stop to ask preference questions.
-When there are multiple reasonable options, choose the safest and simplest option, continue, and document the assumption and tradeoff.
+できるだけ自律的に作業してください。
 
-If information is missing, make a reasonable assumption and continue.
-Record assumptions in `logs/assumptions.md`.
+好みの確認だけを理由に停止しないでください。複数の妥当な選択肢がある場合は、安全で単純な選択肢を選び、作業を続け、仮定とトレードオフを記録してください。
 
-## When to ask the user
+情報が不足している場合は、合理的な仮定を置いて続行してください。仮定は `logs/assumptions.md` に記録してください。
 
-Ask the user only when:
-- credentials, API keys, passwords, or paid service decisions are required
-- a destructive action may delete or overwrite important data
-- legal, financial, medical, or compliance-sensitive judgment is required
-- the task cannot proceed without missing information
+## ユーザーに確認する場合
 
-## Decision priority
+次の場合だけユーザーに確認してください。
 
-When choices are ambiguous, decide using this priority:
+- 認証情報、APIキー、パスワード、有料サービスの判断が必要な場合
+- 重要なデータを削除または上書きする可能性がある場合
+- 法務、金融、医療、コンプライアンス上の判断が必要な場合
+- 不足情報がないと作業を進められない場合
 
-1. Safety and reversibility
-2. Avoiding policy or legal risk
-3. Maintainability
-4. Simplicity
-5. Automation efficiency
-6. Performance optimization
+## 判断の優先順位
 
-## File rules
+判断があいまいな場合は、次の優先順位で決めてください。
 
-- Do not edit `.env` directly.
-- Do not commit secrets.
-- Do not delete existing content unless explicitly instructed.
-- Before large refactors, create a backup or a clear diff.
-- Store generated research data under `data/`.
-- Store generated articles under `content/`.
-- Store logs under `logs/`.
-- Keep generated drafts review-first and unpublished by default.
+1. 安全性と戻しやすさ
+2. ポリシーまたは法務リスクの回避
+3. 保守性
+4. 単純さ
+5. 自動化効率
+6. 性能最適化
 
-## Implementation rules
+## ファイル運用ルール
 
-- Prefer small, testable changes.
-- Prefer Python standard library unless a dependency is clearly justified.
-- Keep CLI behavior deterministic and easy to smoke test.
-- Use structured formats such as CSV and JSON for generated data.
-- After each major change, run relevant tests or smoke checks.
-- Update documentation when behavior changes.
-- Write a short summary in `logs/progress.md`.
+- `.env` を直接編集しないでください。
+- 秘密情報をコミットしないでください。
+- 明示的な指示なしに既存内容を削除しないでください。
+- 大きなリファクタリング前には、バックアップまたは明確な差分を用意してください。
+- 生成した調査データは `data/` に保存してください。
+- 生成した記事は `content/` に保存してください。
+- ログは `logs/` に保存してください。
+- 生成下書きはレビュー前提とし、未公開のまま扱ってください。
 
-## Verification rules
+## 実装ルール
 
-A task is complete only when:
-- implementation is done
-- tests or smoke checks pass
-- generated output is saved
-- assumptions are documented
-- remaining risks are listed
-- next recommended step is written
+- 小さくテストしやすい変更を優先してください。
+- 依存追加が明確に必要でない限り、Python標準ライブラリを優先してください。
+- CLIの挙動は決定的で、スモークテストしやすい形にしてください。
+- 生成データにはCSVやJSONなどの構造化形式を使ってください。
+- 主要な変更後は、関連テストまたはスモークチェックを実行してください。
+- 挙動が変わった場合はドキュメントを更新してください。
+- `logs/progress.md` に短い進捗を記録してください。
 
-## Affiliate / SEO safety rules
+## 検証ルール
 
-- Do not generate misleading claims.
-- Do not invent prices, rankings, product features, official endorsements, or user reviews.
-- Mark uncertain facts as requiring human review.
-- For YMYL topics such as finance, health, medicine, insurance, legal, and investment, require human review before publishing.
-- Do not auto-publish articles without explicit human approval.
-- Keep affiliate angles framed as hypotheses until reviewed.
+タスクは次を満たしたときに完了とします。
 
-## Communication format
+- 実装が完了している
+- テストまたはスモークチェックが通っている
+- 生成物が保存されている
+- 仮定が記録されている
+- 残リスクが記録されている
+- 次の推奨作業が記録されている
 
-At the end of each run, produce:
+## アフィリエイト・SEO安全ルール
 
-1. What was done
-2. Files changed
-3. Tests/checks run
-4. Assumptions made
-5. Risks or unresolved issues
-6. Next actions
+- 誤解を招く主張を生成しないでください。
+- 価格、ランキング、商品機能、公式推薦、利用者レビューを根拠なく作らないでください。
+- 不確かな事実は人間レビューが必要と明記してください。
+- 金融、健康、医療、保険、法律、投資などのYMYL領域では、公開前の人間レビューを必須にしてください。
+- 明示的な人間承認なしに記事を自動公開しないでください。
+- アフィリエイト導線は、レビューが終わるまで仮説として扱ってください。
 
-Do not stop merely because a better option exists.
-Choose a reasonable option, proceed, and document the tradeoff.
+## 報告形式
+
+各実行の最後に、次を報告してください。
+
+1. 実施したこと
+2. 変更したファイル
+3. 実行したテスト・確認
+4. 置いた仮定
+5. リスクまたは未解決事項
+6. 次のアクション
+
+より良い選択肢があるという理由だけで停止しないでください。妥当な選択肢を選び、続行し、トレードオフを記録してください。

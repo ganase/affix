@@ -10,11 +10,11 @@ AI開発ツールを比較検討しており、導入判断の材料を探して
 
 ## 収益導線
 
-SaaS affiliateにつながる比較検討導線。ただし順位や優劣は根拠確認後に限定する。
+SaaS紹介につながる比較検討導線。ただし順位や優劣は根拠確認後に限定する。
 
 ## 注意事項
 
-Generated content is a draft and must be reviewed before publishing. Do not add prices, rankings, feature claims, endorsements, or user reviews without evidence. Niche note: 機能や料金は必ず公式情報で確認する Keyword note: 比較項目の事実確認が必要
+生成内容は下書きであり、公開前に必ず人間が確認する必要があります。 根拠のない価格、ランキング、機能説明、公式推薦、利用者レビューは追加しないでください。 ジャンルメモ: 機能や料金は必ず公式情報で確認する キーワードメモ: 比較項目の事実確認が必要
 
 ## 見出し案
 
@@ -43,12 +43,12 @@ Generated content is a draft and must be reviewed before publishing. Do not add 
 
 ## 事実確認が必要な項目
 
-- [ ] Official product or service names
-- [ ] Current pricing and plan availability
-- [ ] Current feature availability
-- [ ] Affiliate program terms and disclosure requirements
-- [ ] Claims related to Claude Code 比較
-- [ ] Risk level for AI開発ツール: low
+- [ ] 公式の商品名またはサービス名
+- [ ] 現在の価格とプラン提供状況
+- [ ] 現在提供されている機能
+- [ ] アフィリエイトプログラムの規約と開示要件
+- [ ] 「Claude Code 比較」に関する主張
+- [ ] AI開発ツールのリスク区分: 低
 
 ## 公開前チェックリスト
 

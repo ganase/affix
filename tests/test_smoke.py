@@ -49,7 +49,7 @@ class SmokeTest(unittest.TestCase):
             self.assertIn("## 事実確認が必要な項目", draft_text)
 
             progress = project / "logs" / "progress.md"
-            self.assertIn("Generated", progress.read_text(encoding="utf-8"))
+            self.assertIn("記事案を生成しました", progress.read_text(encoding="utf-8"))
 
 
 if __name__ == "__main__":

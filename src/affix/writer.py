@@ -1,4 +1,4 @@
-"""Output writers for Affix."""
+"""Affixの出力ファイルを書き込む処理。"""
 
 from __future__ import annotations
 
@@ -37,11 +37,12 @@ def write_json(path: Path, ideas: list[ArticleIdea]) -> None:
 def write_csv(path: Path, ideas: list[ArticleIdea]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", encoding="utf-8", newline="") as file:
-        writer = csv.DictWriter(file, fieldnames=ARTICLE_FIELDS)
+        writer = csv.DictWriter(file, fieldnames=ARTICLE_FIELDS, lineterminator="\n")
         writer.writeheader()
         for idea in ideas:
             row = asdict(idea)
             row["article_outline"] = " | ".join(idea.article_outline)
+            row["human_review_required"] = "はい" if idea.human_review_required else "いいえ"
             writer.writerow({field: row[field] for field in ARTICLE_FIELDS})
 
 
@@ -113,4 +114,4 @@ def render_markdown_draft(idea: ArticleIdea) -> str:
 
 def _safe_filename(value: str) -> str:
     safe = re.sub(r"[^a-zA-Z0-9_.-]+", "-", value).strip("-")
-    return safe or "article"
+    return safe or "記事"

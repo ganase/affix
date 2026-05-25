@@ -1,6 +1,6 @@
-# Project-local Codex policy notes for Affix.
-# Exact Codex config keys may vary by runtime version; these values document the
-# intended safe operating mode for this repository.
+# Affix用のプロジェクトローカルなCodex方針メモです。
+# 実際に利用できるCodex設定キーは実行環境の版によって異なる場合があります。
+# ここでは、このリポジトリで想定する安全寄りの運用モードを記録しています。
 
 sandbox_mode = "workspace-write"
 approval_policy = "on-request"
@@ -8,7 +8,7 @@ network_access = false
 
 [project]
 name = "affix"
-purpose = "Automated affiliate website operation system, review-first and safe by default."
+purpose = "レビュー前提で安全性を優先する、アフィリエイトサイト自動運営システム。"
 
 [safety]
 handle_secrets = false

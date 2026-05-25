@@ -1,4 +1,4 @@
-"""CSV loading utilities."""
+"""CSV読み込み用の補助処理。"""
 
 from __future__ import annotations
 
@@ -32,13 +32,13 @@ KEYWORD_FIELDS = [
 
 def _read_dicts(path: Path, required_fields: list[str]) -> list[dict[str, str]]:
     if not path.exists():
-        raise FileNotFoundError(f"Required input CSV not found: {path}")
+        raise FileNotFoundError(f"必須の入力CSVが見つかりません: {path}")
 
     with path.open("r", encoding="utf-8", newline="") as file:
         reader = csv.DictReader(file)
         missing = [field for field in required_fields if field not in (reader.fieldnames or [])]
         if missing:
-            raise ValueError(f"{path} is missing required columns: {', '.join(missing)}")
+            raise ValueError(f"{path} に必須列がありません: {', '.join(missing)}")
         return [{key: (value or "").strip() for key, value in row.items()} for row in reader]
 
 

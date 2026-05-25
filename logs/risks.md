@@ -1,11 +1,29 @@
-# Risks
+# リスク
 
-- Generated drafts may contain generic guidance that still requires fact-checking.
-- Product features, pricing, rankings, and endorsements must be verified by humans before publication.
-- YMYL content requires extra review and should not be published automatically.
+- 生成下書きには、汎用的な案内であっても事実確認が必要な内容が含まれる可能性があります。
+- 商品機能、価格、ランキング、公式推薦は公開前に人間が確認する必要があります。
+- YMYL領域のコンテンツは追加レビューが必要であり、自動公開してはいけません。
 
 ## 2026-05-24 02:33:35 UTC
 
-- Drafts may omit recent product changes, pricing changes, or policy changes.
-- Affiliate claims must be checked against official sources before publication.
-- Comparison articles need evidence before using rankings or superiority claims.
+- 下書きには最新の商品変更、価格変更、ポリシー変更が反映されていない可能性があります。
+- アフィリエイトに関する主張は、公開前に公式情報で確認する必要があります。
+- 比較記事でランキングや優劣を表現する場合は、事前に根拠が必要です。
+
+## 2026-05-25 12:05:12 UTC
+
+- 下書きには最新の商品変更、価格変更、ポリシー変更が反映されていない可能性があります。
+- アフィリエイトに関する主張は、公開前に公式情報で確認する必要があります。
+- 比較記事でランキングや優劣を表現する場合は、事前に根拠が必要です。
+
+## 2026-05-25 12:07:07 UTC
+
+- 下書きには最新の商品変更、価格変更、ポリシー変更が反映されていない可能性があります。
+- アフィリエイトに関する主張は、公開前に公式情報で確認する必要があります。
+- 比較記事でランキングや優劣を表現する場合は、事前に根拠が必要です。
+
+## 2026-05-25 12:07:40 UTC
+
+- 下書きには最新の商品変更、価格変更、ポリシー変更が反映されていない可能性があります。
+- アフィリエイトに関する主張は、公開前に公式情報で確認する必要があります。
+- 比較記事でランキングや優劣を表現する場合は、事前に根拠が必要です。

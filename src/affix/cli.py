@@ -1,4 +1,4 @@
-"""Command line interface for Affix."""
+"""Affixのコマンドラインインターフェース。"""
 
 from __future__ import annotations
 
@@ -12,11 +12,11 @@ from .writer import write_csv, write_json, write_markdown_drafts
 
 
 def build_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(description="Affix affiliate site operation CLI")
+    parser = argparse.ArgumentParser(description="Affix アフィリエイトサイト運営支援CLI")
     subparsers = parser.add_subparsers(dest="command", required=True)
 
-    generate = subparsers.add_parser("generate", help="Generate article ideas and review drafts")
-    generate.add_argument("--root", type=Path, default=Path.cwd(), help="Project root directory")
+    generate = subparsers.add_parser("generate", help="記事案とレビュー用下書きを生成します")
+    generate.add_argument("--root", type=Path, default=Path.cwd(), help="プロジェクトのルートディレクトリ")
 
     return parser
 
@@ -28,7 +28,7 @@ def main(argv: list[str] | None = None) -> int:
     if args.command == "generate":
         return generate_command(args.root)
 
-    parser.error(f"Unknown command: {args.command}")
+    parser.error(f"不明なコマンドです: {args.command}")
     return 2
 
 
@@ -45,9 +45,9 @@ def generate_command(root: Path) -> int:
     drafts = write_markdown_drafts(drafts_dir, ideas)
     append_run_logs(root / "logs", idea_count=len(ideas), draft_count=len(drafts))
 
-    print(f"Generated {len(ideas)} article ideas.")
-    print(f"Wrote JSON: {output_dir / 'article_ideas.json'}")
-    print(f"Wrote CSV: {output_dir / 'article_ideas.csv'}")
-    print(f"Wrote drafts: {drafts_dir}")
-    print("Updated logs: logs/")
+    print(f"{len(ideas)}件の記事案を生成しました。")
+    print(f"JSONを書き出しました: {output_dir / 'article_ideas.json'}")
+    print(f"CSVを書き出しました: {output_dir / 'article_ideas.csv'}")
+    print(f"下書きを書き出しました: {drafts_dir}")
+    print("ログを更新しました: logs/")
     return 0

@@ -1,55 +1,57 @@
 # TASK.md
 
-## Implementation scope
+## 実装範囲
 
-Build the first minimal Affix development foundation for an automated affiliate website operation system.
+アフィリエイトサイト自動運営システムであるAffixの、最初の最小開発基盤を作成します。
 
-This implementation creates:
-- project guidance for future autonomous Codex work
-- safe Codex project configuration notes
-- sample niche and keyword input CSV files
-- a standard-library-only Python CLI
-- article idea JSON and CSV output
-- review-oriented Markdown drafts
-- assumption, progress, risk, and next-action logs
-- a smoke test that verifies the core generator flow
+今回の実装には次を含みます。
 
-## Completed behavior
+- 今後の自律的なCodex作業に向けたプロジェクト方針
+- 安全寄りのCodexプロジェクト設定メモ
+- サンプルのジャンルCSVとキーワードCSV
+- Python標準ライブラリだけで動くCLI
+- 記事案のJSON/CSV出力
+- レビュー前提のMarkdown下書き
+- 仮定、進捗、リスク、次アクションのログ
+- 主要な生成フローを確認するスモークテスト
 
-Running:
+## 実装済みの挙動
+
+次を実行します。
 
 ```bash
 python run_affix.py generate
 ```
 
-will:
+実行すると、次を行います。
 
-1. Read `data/input/niches.csv`
-2. Read `data/input/keywords.csv`
-3. Generate article ideas by combining matching niches and keywords
-4. Save `data/output/article_ideas.json`
-5. Save `data/output/article_ideas.csv`
-6. Write Markdown drafts under `content/drafts/`
-7. Append progress to `logs/progress.md`
-8. Append assumptions to `logs/assumptions.md`
-9. Append risks to `logs/risks.md`
-10. Append recommended next actions to `logs/next_actions.md`
+1. `data/input/niches.csv` を読み込む
+2. `data/input/keywords.csv` を読み込む
+3. 紐づくジャンルとキーワードから記事案を生成する
+4. `data/output/article_ideas.json` を保存する
+5. `data/output/article_ideas.csv` を保存する
+6. `content/drafts/` にMarkdown下書きを書き出す
+7. `logs/progress.md` に進捗を追記する
+8. `logs/assumptions.md` に仮定を追記する
+9. `logs/risks.md` にリスクを追記する
+10. `logs/next_actions.md` に次の推奨作業を追記する
 
-## Completion conditions
+## 完了条件
 
-The current task is complete when:
-- the listed directory structure exists
-- the CLI runs without external dependencies
-- sample input data is present
-- JSON, CSV, and Markdown outputs are generated
-- smoke tests pass
-- logs document assumptions, risks, progress, and next actions
+現在のタスクは、次を満たしたときに完了とします。
 
-## Intentional non-goals
+- 想定したディレクトリ構成が存在する
+- CLIが外部依存なしで動作する
+- サンプル入力データが存在する
+- JSON、CSV、Markdownの出力が生成される
+- スモークテストが通る
+- ログに仮定、リスク、進捗、次アクションが記録される
 
-- No automatic publishing
-- No WordPress API calls
-- No external keyword volume lookup
-- No affiliate network API integration
-- No paid service dependency
-- No secret handling
+## 今回は実装しないこと
+
+- 自動公開
+- WordPress API呼び出し
+- 外部キーワードボリューム取得
+- アフィリエイトネットワークAPI連携
+- 有料サービス依存
+- 秘密情報の取り扱い

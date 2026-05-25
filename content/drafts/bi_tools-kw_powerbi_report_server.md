@@ -10,11 +10,11 @@ BIツールを比較検討しており、導入判断の材料を探している
 
 ## 収益導線
 
-lead generationにつながる導入支援・関連ツール紹介導線。価格や機能は公式確認後に記載する。
+リード獲得につながる導入支援・関連ツール紹介導線。価格や機能は公式確認後に記載する。
 
 ## 注意事項
 
-Generated content is a draft and must be reviewed before publishing. Do not add prices, rankings, feature claims, endorsements, or user reviews without evidence. Potential compliance or YMYL-adjacent risk: require extra human review. Niche note: 導入条件やライセンスは変わりやすい Keyword note: ライセンス条件の確認が必要
+生成内容は下書きであり、公開前に必ず人間が確認する必要があります。 根拠のない価格、ランキング、機能説明、公式推薦、利用者レビューは追加しないでください。 コンプライアンスまたはYMYL隣接リスクがあるため、追加の人間レビューが必要です。 ジャンルメモ: 導入条件やライセンスは変わりやすい キーワードメモ: ライセンス条件の確認が必要
 
 ## 見出し案
 
@@ -43,12 +43,12 @@ Generated content is a draft and must be reviewed before publishing. Do not add 
 
 ## 事実確認が必要な項目
 
-- [ ] Official product or service names
-- [ ] Current pricing and plan availability
-- [ ] Current feature availability
-- [ ] Affiliate program terms and disclosure requirements
-- [ ] Claims related to Power BI Report Server 導入
-- [ ] Risk level for BIツール: medium
+- [ ] 公式の商品名またはサービス名
+- [ ] 現在の価格とプラン提供状況
+- [ ] 現在提供されている機能
+- [ ] アフィリエイトプログラムの規約と開示要件
+- [ ] 「Power BI Report Server 導入」に関する主張
+- [ ] BIツールのリスク区分: 中
 
 ## 公開前チェックリスト
 

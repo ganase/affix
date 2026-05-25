@@ -1,89 +1,95 @@
 # AGENTS.md
 
-## Project goal
+## プロジェクト目標
 
-This repository is for building an automated affiliate website operation system.
+このリポジトリは、アフィリエイトサイト運営を自動化するシステムを構築するためのものです。
 
-The system should support:
-- market research
-- keyword research
-- article outline generation
-- article drafting
-- affiliate link management
-- WordPress or static site publishing
-- periodic content refresh
-- logging and review reports
+このシステムは次の作業を支援します。
 
-## Working style
+- 市場調査
+- キーワード調査
+- 記事構成案の生成
+- 記事下書きの作成
+- アフィリエイトリンク管理
+- WordPressまたは静的サイトへの公開
+- 定期的なコンテンツ更新
+- ログ保存とレビュー報告
 
-Act autonomously as much as possible.
+## 作業スタイル
 
-Do not ask the user questions unless:
-- credentials, API keys, passwords, or paid service decisions are required
-- a destructive action may delete or overwrite important data
-- legal, financial, medical, or compliance-sensitive judgment is required
-- the task cannot proceed without missing information
+できるだけ自律的に作業してください。
 
-If information is missing, make a reasonable assumption and continue.
-Record assumptions in `logs/assumptions.md`.
+次の場合を除き、ユーザーに質問しないでください。
 
-## Decision priority
+- 認証情報、APIキー、パスワード、有料サービスの判断が必要な場合
+- 重要なデータを削除または上書きする可能性がある場合
+- 法務、金融、医療、コンプライアンス上の判断が必要な場合
+- 不足情報がないと作業を進められない場合
 
-When choices are ambiguous, decide using this priority:
+情報が不足している場合は、合理的な仮定を置いて続行してください。仮定は `logs/assumptions.md` に記録してください。
 
-1. Safety and reversibility
-2. Avoiding policy or legal risk
-3. Maintainability
-4. Simplicity
-5. Automation efficiency
-6. Performance optimization
+## 判断の優先順位
 
-## File rules
+判断があいまいな場合は、次の優先順位で決めてください。
 
-- Do not edit `.env` directly.
-- Do not commit secrets.
-- Do not delete existing content unless explicitly instructed.
-- Before large refactors, create a backup or a clear diff.
-- Store generated research data under `data/`.
-- Store generated articles under `content/`.
-- Store logs under `logs/`.
+1. 安全性と戻しやすさ
+2. ポリシーまたは法務リスクの回避
+3. 保守性
+4. 単純さ
+5. 自動化効率
+6. 性能最適化
 
-## Implementation rules
+## ファイル運用ルール
 
-Prefer small, testable changes.
-After each major change:
-- run relevant tests
-- run lint or format checks if available
-- update documentation if behavior changed
-- write a short summary in `logs/progress.md`
+- `.env` を直接編集しないでください。
+- 秘密情報をコミットしないでください。
+- 明示的な指示なしに既存内容を削除しないでください。
+- 大きなリファクタリング前には、バックアップまたは明確な差分を用意してください。
+- 生成した調査データは `data/` に保存してください。
+- 生成した記事は `content/` に保存してください。
+- ログは `logs/` に保存してください。
 
-## Verification
+## 実装ルール
 
-A task is complete only when:
-- implementation is done
-- tests or smoke checks pass
-- generated output is saved
-- assumptions are documented
-- remaining risks are listed
-- next recommended step is written
+小さくテストしやすい変更を優先してください。
 
-## Affiliate / SEO safety
+主要な変更後は、次を行ってください。
 
-Do not generate misleading claims.
-Do not invent product features, prices, rankings, reviews, or official endorsements.
-When facts are uncertain, mark them as requiring human review.
-For YMYL topics such as finance, health, medicine, insurance, legal, or investment, use extra caution and require human review before publishing.
+- 関連テストを実行する
+- 利用可能な場合はlintまたは整形チェックを実行する
+- 挙動が変わった場合はドキュメントを更新する
+- `logs/progress.md` に短い進捗を記録する
 
-## Communication
+## 検証
 
-At the end of each run, produce:
+タスクは次を満たしたときに完了とします。
 
-1. What was done
-2. Files changed
-3. Tests/checks run
-4. Assumptions made
-5. Risks or unresolved issues
-6. Next actions
+- 実装が完了している
+- テストまたはスモークチェックが通っている
+- 生成物が保存されている
+- 仮定が記録されている
+- 残リスクが記録されている
+- 次の推奨作業が記録されている
 
-Do not stop merely because a better option exists.
-Choose a reasonable option, proceed, and document the tradeoff.
+## アフィリエイト・SEO安全
+
+誤解を招く主張を生成しないでください。
+
+商品機能、価格、ランキング、レビュー、公式推薦を根拠なく作らないでください。
+
+事実が不確かな場合は、人間レビューが必要と明記してください。
+
+金融、健康、医療、保険、法律、投資などのYMYL領域では特に注意し、公開前の人間レビューを必須にしてください。
+
+## 報告
+
+各実行の最後に、次を報告してください。
+
+1. 実施したこと
+2. 変更したファイル
+3. 実行したテスト・確認
+4. 置いた仮定
+5. リスクまたは未解決事項
+6. 次のアクション
+
+より良い選択肢があるという理由だけで停止しないでください。妥当な選択肢を選び、続行し、トレードオフを記録してください。

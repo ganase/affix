@@ -1,6 +1,6 @@
 keyword_id,niche_id,keyword,search_intent,funnel_stage,article_type,priority,notes
-kw_codex_usage,ai_dev_tools,Codex 使い方,使い方を理解したい,awareness,how_to,high,公式仕様が変わる可能性あり
-kw_claude_code_compare,ai_dev_tools,Claude Code 比較,類似ツールを比較したい,consideration,comparison,medium,比較項目の事実確認が必要
-kw_powerbi_report_server,bi_tools,Power BI Report Server 導入,オンプレミスBI導入を検討したい,consideration,guide,high,ライセンス条件の確認が必要
-kw_tableau_powerbi,bi_tools,Tableau Power BI 比較,BIツール選定の材料がほしい,consideration,comparison,high,ランキング断定を避ける
-kw_local_rag_build,local_ai_rag,ローカルRAG 作り方,ローカルRAGの構築手順を知りたい,awareness,how_to,high,セキュリティと運用リスクに注意
+kw_codex_usage,ai_dev_tools,Codex 使い方,使い方を理解したい,認知,実践ガイド,高,公式仕様が変わる可能性あり
+kw_claude_code_compare,ai_dev_tools,Claude Code 比較,類似ツールを比較したい,比較検討,比較ガイド,中,比較項目の事実確認が必要
+kw_powerbi_report_server,bi_tools,Power BI Report Server 導入,オンプレミスBI導入を検討したい,比較検討,導入ガイド,高,ライセンス条件の確認が必要
+kw_tableau_powerbi,bi_tools,Tableau Power BI 比較,BIツール選定の材料がほしい,比較検討,比較ガイド,高,ランキング断定を避ける
+kw_local_rag_build,local_ai_rag,ローカルRAG 作り方,ローカルRAGの構築手順を知りたい,認知,実践ガイド,高,セキュリティと運用リスクに注意

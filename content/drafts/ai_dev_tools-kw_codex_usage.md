@@ -10,11 +10,11 @@ AI開発ツールについて学び始め、基本的な進め方を理解した
 
 ## 収益導線
 
-SaaS affiliateにつながる導入支援・関連ツール紹介導線。価格や機能は公式確認後に記載する。
+SaaS紹介につながる導入支援・関連ツール紹介導線。価格や機能は公式確認後に記載する。
 
 ## 注意事項
 
-Generated content is a draft and must be reviewed before publishing. Do not add prices, rankings, feature claims, endorsements, or user reviews without evidence. Niche note: 機能や料金は必ず公式情報で確認する Keyword note: 公式仕様が変わる可能性あり
+生成内容は下書きであり、公開前に必ず人間が確認する必要があります。 根拠のない価格、ランキング、機能説明、公式推薦、利用者レビューは追加しないでください。 ジャンルメモ: 機能や料金は必ず公式情報で確認する キーワードメモ: 公式仕様が変わる可能性あり
 
 ## 見出し案
 
@@ -43,12 +43,12 @@ Generated content is a draft and must be reviewed before publishing. Do not add 
 
 ## 事実確認が必要な項目
 
-- [ ] Official product or service names
-- [ ] Current pricing and plan availability
-- [ ] Current feature availability
-- [ ] Affiliate program terms and disclosure requirements
-- [ ] Claims related to Codex 使い方
-- [ ] Risk level for AI開発ツール: low
+- [ ] 公式の商品名またはサービス名
+- [ ] 現在の価格とプラン提供状況
+- [ ] 現在提供されている機能
+- [ ] アフィリエイトプログラムの規約と開示要件
+- [ ] 「Codex 使い方」に関する主張
+- [ ] AI開発ツールのリスク区分: 低
 
 ## 公開前チェックリスト
 

@@ -1,3 +1,3 @@
-"""Affix affiliate site operation toolkit."""
+"""Affixのアフィリエイトサイト運営支援ツール。"""
 
 __version__ = "0.1.0"

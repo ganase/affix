@@ -1,87 +1,122 @@
 # Affix
 
-Affix is a minimal development foundation for an automated affiliate website operation system.
+Affixは、アフィリエイトサイト運営を自動化するための最小開発基盤です。
 
-The current version focuses on safe, review-first article planning. It combines niche and keyword CSV files, generates article ideas, writes structured output, and creates Markdown drafts for human review.
+現在の版では、安全性を優先し、記事の完全自動公開ではなく「人間が確認するための記事案とMarkdown下書き」を生成します。ジャンルCSVとキーワードCSVを読み込み、記事案をJSON/CSVで保存し、レビュー用のMarkdown下書きと運用ログを出力します。
 
-## What Affix automates
+## Affixが自動化すること
 
-- niche candidate management
-- keyword candidate management
-- article idea generation
-- review-ready Markdown draft creation
-- affiliate angle planning
-- progress, assumption, risk, and next-action logging
+- ジャンル候補の管理
+- キーワード候補の管理
+- 記事案の生成
+- レビュー用Markdown下書きの作成
+- アフィリエイト導線案の整理
+- 進捗、仮定、リスク、次アクションのログ保存
 
-## What Affix does not automate yet
+## まだ自動化しないこと
 
-- automatic WordPress publishing
-- static site deployment
-- real keyword volume collection
-- product price or ranking verification
-- affiliate network API integration
-- legal, financial, medical, or compliance approval
-- publishing without human approval
+- WordPressへの自動公開
+- 静的サイトの自動デプロイ
+- 実検索ボリュームの取得
+- 商品価格やランキングの自動検証
+- アフィリエイトネットワークAPI連携
+- 法務、金融、医療、コンプライアンス判断
+- 人間承認なしの公開
 
-## System architecture
+## 管理者ユーザーが最初にやること
+
+1. このリポジトリを取得します。
+
+```bash
+git clone https://github.com/ganase/affix.git
+cd affix
+```
+
+2. 入力CSVを確認します。
+
+- `data/input/niches.csv`: 扱うジャンル候補
+- `data/input/keywords.csv`: 記事化したいキーワード候補
+
+3. 必要に応じてCSVを編集します。
+
+まずはサンプルのまま実行できます。実運用を始める場合は、ジャンル名、キーワード、検索意図、優先度、注意事項を自分のサイト方針に合わせて更新してください。
+
+4. 記事案と下書きを生成します。
+
+```bash
+python run_affix.py generate
+```
+
+5. 出力を確認します。
+
+- `data/output/article_ideas.json`
+- `data/output/article_ideas.csv`
+- `content/drafts/*.md`
+- `logs/*.md`
+
+6. 公開前に人間レビューを行います。
+
+生成されたMarkdownは下書きです。価格、機能、ランキング、口コミ、公式推薦、アフィリエイト開示、YMYLリスクを確認してから公開判断をしてください。
+
+## システム構成
 
 ```mermaid
 flowchart TD
-    User["Human reviewer / operator"] --> CLI["run_affix.py generate"]
+    A["管理者・レビュアー"] --> B["run_affix.py generate"]
 
-    CLI --> AffixCLI["src/affix/cli.py"]
-    AffixCLI --> Loaders["loaders.py<br/>Read input CSV"]
-    AffixCLI --> Generator["generator.py<br/>Generate article ideas"]
-    AffixCLI --> Writers["writer.py<br/>Write outputs"]
-    AffixCLI --> Logger["logger.py<br/>Append operation logs"]
+    B --> C["src/affix/cli.py"]
+    C --> D["loaders.py<br/>入力CSVを読み込み"]
+    C --> E["generator.py<br/>記事案を生成"]
+    C --> F["writer.py<br/>出力ファイルを書き込み"]
+    C --> G["logger.py<br/>運用ログを追記"]
 
-    Niches["data/input/niches.csv<br/>Niche candidates"] --> Loaders
-    Keywords["data/input/keywords.csv<br/>Keyword candidates"] --> Loaders
+    H["data/input/niches.csv<br/>ジャンル候補"] --> D
+    I["data/input/keywords.csv<br/>キーワード候補"] --> D
 
-    Loaders --> Models["models.py<br/>Niche / Keyword / ArticleIdea"]
-    Models --> Generator
+    D --> J["models.py<br/>ジャンル / キーワード / 記事案"]
+    J --> E
 
-    Generator --> ArticleIdeas["Article ideas<br/>review-first structured data"]
+    E --> K["記事案<br/>レビュー前提の構造化データ"]
 
-    ArticleIdeas --> Writers
-    Writers --> JSON["data/output/article_ideas.json"]
-    Writers --> CSV["data/output/article_ideas.csv"]
-    Writers --> Drafts["content/drafts/*.md<br/>Markdown review drafts"]
+    K --> F
+    F --> L["data/output/article_ideas.json"]
+    F --> M["data/output/article_ideas.csv"]
+    F --> N["content/drafts/*.md<br/>レビュー用Markdown下書き"]
 
-    Logger --> Assumptions["logs/assumptions.md"]
-    Logger --> Progress["logs/progress.md"]
-    Logger --> Risks["logs/risks.md"]
-    Logger --> NextActions["logs/next_actions.md"]
+    G --> O["logs/assumptions.md"]
+    G --> P["logs/progress.md"]
+    G --> Q["logs/risks.md"]
+    G --> R["logs/next_actions.md"]
 
-    Drafts --> User
-    JSON --> FutureAutomation["Future automation"]
-    CSV --> FutureAutomation
+    N --> A
+    L --> S["将来の自動化"]
+    M --> S
 
-    FutureAutomation -. explicit approval required .-> WordPress["WordPress draft publishing"]
-    FutureAutomation -. explicit approval required .-> StaticSite["Static site export"]
-    FutureAutomation -. scheduled checks .-> GitHubActions["GitHub Actions"]
+    S -. 明示的な承認が必要 .-> T["WordPress下書き投稿"]
+    S -. 明示的な承認が必要 .-> U["静的サイト出力"]
+    S -. 定期実行 .-> V["GitHub Actions"]
 
-    AGENTS["AGENTS.md<br/>Autonomous work rules"] -. guides .-> AffixCLI
-    Config[".codex/config.toml<br/>Safe local policy notes"] -. constrains .-> AffixCLI
+    W["AGENTS.md<br/>自律作業ルール"] -. 作業方針 .-> C
+    X[".codex/config.toml<br/>安全寄りのローカル方針"] -. 制約 .-> C
 
-    classDef input fill:#eef7ff,stroke:#4b8bbe,color:#111;
-    classDef code fill:#f5f5f5,stroke:#777,color:#111;
-    classDef output fill:#f0fff4,stroke:#4c9a62,color:#111;
-    classDef log fill:#fff8e6,stroke:#b58b00,color:#111;
-    classDef future fill:#f8f0ff,stroke:#8a5cc2,color:#111;
-    classDef safety fill:#fff0f0,stroke:#cc6666,color:#111;
+    classDef c1 fill:#eef7ff,stroke:#4b8bbe,color:#111;
+    classDef c2 fill:#f5f5f5,stroke:#777,color:#111;
+    classDef c3 fill:#f0fff4,stroke:#4c9a62,color:#111;
+    classDef c4 fill:#fff8e6,stroke:#b58b00,color:#111;
+    classDef c5 fill:#f8f0ff,stroke:#8a5cc2,color:#111;
+    classDef c6 fill:#fff0f0,stroke:#cc6666,color:#111;
 
-    class Niches,Keywords input;
-    class CLI,AffixCLI,Loaders,Generator,Writers,Logger,Models code;
-    class JSON,CSV,Drafts,ArticleIdeas output;
-    class Assumptions,Progress,Risks,NextActions log;
-    class FutureAutomation,WordPress,StaticSite,GitHubActions future;
-    class AGENTS,Config,User safety;
+    class H,I c1;
+    class B,C,D,E,F,G,J c2;
+    class K,L,M,N c3;
+    class O,P,Q,R c4;
+    class S,T,U,V c5;
+    class A,W,X c6;
 ```
 
-Detailed architecture notes are also available in `docs/system_architecture.md`.
+詳細な構成メモは `docs/system_architecture.md` にもあります。
 
-## Directory structure
+## ディレクトリ構成
 
 ```text
 affix/
@@ -118,21 +153,22 @@ affix/
   run_affix.py
 ```
 
-## Setup
+## セットアップ
 
-No installation is required. Affix uses only the Python standard library.
+追加インストールは不要です。AffixはPython標準ライブラリだけで動きます。
 
-Use Python 3.10 or newer if possible.
+可能であればPython 3.10以上を使用してください。
 
-## Run
+## 実行コマンド
 
 ```bash
 python run_affix.py generate
 ```
 
-## Input CSV files
+## 入力CSV
 
-`data/input/niches.csv` contains niche-level data:
+`data/input/niches.csv` にはジャンル単位の情報を入れます。
+
 - `niche_id`
 - `niche_name`
 - `description`
@@ -141,7 +177,8 @@ python run_affix.py generate
 - `competition_level`
 - `notes`
 
-`data/input/keywords.csv` contains keyword-level data:
+`data/input/keywords.csv` にはキーワード単位の情報を入れます。
+
 - `keyword_id`
 - `niche_id`
 - `keyword`
@@ -151,35 +188,36 @@ python run_affix.py generate
 - `priority`
 - `notes`
 
-Keywords are matched to niches by `niche_id`.
+キーワードは `niche_id` でジャンルに紐づきます。
 
-## Output files
+## 出力ファイル
 
-`data/output/article_ideas.json` contains structured article ideas for downstream automation.
+`data/output/article_ideas.json` は、将来の自動化で使いやすい構造化された記事案です。
 
-`data/output/article_ideas.csv` contains the same article ideas in spreadsheet-friendly format.
+`data/output/article_ideas.csv` は、表計算ソフトで確認しやすい記事案です。
 
-`content/drafts/` contains one Markdown draft per article idea. These files are for review and should not be published automatically.
+`content/drafts/` には、記事案ごとのMarkdown下書きが保存されます。これらはレビュー用であり、自動公開してはいけません。
 
-`logs/` contains append-only operational notes:
+`logs/` には追記型の運用ログが保存されます。
+
 - `assumptions.md`
 - `progress.md`
 - `risks.md`
 - `next_actions.md`
 
-## Why human review is required
+## 人間レビューが必要な理由
 
-Affiliate content can easily become misleading if it invents prices, rankings, feature claims, endorsements, or reviews.
+アフィリエイト記事では、価格、ランキング、機能、公式推薦、口コミを根拠なく書くと、読者を誤解させるリスクがあります。
 
-Affix therefore treats generated content as a draft. Human review is required before publication, especially for YMYL topics such as finance, health, medicine, insurance, legal, and investment.
+そのためAffixの生成物は、公開前の下書きとして扱います。金融、健康、医療、保険、法律、投資などのYMYL領域では特に慎重に確認してください。
 
-## Future extensions
+## 今後の拡張案
 
-- WordPress draft creation after explicit approval
-- static site generator export
-- GitHub Actions scheduled refresh
-- keyword volume import from manually exported CSV files
-- affiliate link inventory and disclosure management
-- product fact-check workflow
-- review report generation
-- duplicate keyword clustering
+- 人間承認後のWordPress下書き作成
+- 静的サイトジェネレーターへの出力
+- GitHub Actionsによる定期更新
+- 手動エクスポートした検索ボリュームCSVの取り込み
+- アフィリエイトリンク台帳と開示文管理
+- 商品情報の事実確認フロー
+- レビュー報告書の生成
+- 重複キーワードのクラスタリング
