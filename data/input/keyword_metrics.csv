@@ -1,0 +1,6 @@
+keyword_id,search_volume,competition_level,commercial_intent,priority_score,notes
+kw_codex_usage,TBD,sample: 中,sample: 中,sample: 90,初回記事候補のサンプル評価。実検索ボリュームは未確認
+kw_local_rag_build,TBD,sample: 中,sample: 高,sample: 85,相談導線につながりやすいという仮説のサンプル評価
+kw_powerbi_report_server,TBD,sample: 高,sample: 高,sample: 80,B2Bリード価値は高いがライセンス確認が必要というサンプル評価
+kw_tableau_powerbi,TBD,sample: 高,sample: 高,sample: 75,比較需要はあるが競合が強いというサンプル評価
+kw_claude_code_compare,TBD,sample: 高,sample: 中,sample: 70,比較項目の変化が速いというサンプル評価

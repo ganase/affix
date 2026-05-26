@@ -29,6 +29,31 @@ class Keyword:
 
 
 @dataclass(frozen=True)
+class AffiliateProgram:
+    program_id: str
+    niche_id: str
+    service_name: str
+    asp_name: str
+    reward_type: str
+    reward_amount: str
+    approval_condition: str
+    cookie_days: str
+    official_url: str
+    affiliate_url_placeholder: str
+    notes: str
+
+
+@dataclass(frozen=True)
+class KeywordMetric:
+    keyword_id: str
+    search_volume: str
+    competition_level: str
+    commercial_intent: str
+    priority_score: str
+    notes: str
+
+
+@dataclass(frozen=True)
 class ArticleIdea:
     article_id: str
     niche_id: str
@@ -41,6 +66,20 @@ class ArticleIdea:
     target_reader: str
     article_outline: list[str] = field(default_factory=list)
     affiliate_angle: str = ""
+    program_id: str = ""
+    service_name: str = ""
+    asp_name: str = ""
+    reward_type: str = ""
+    reward_amount: str = "TBD"
+    approval_condition: str = "TBD"
+    cookie_days: str = "TBD"
+    official_url: str = ""
+    affiliate_url_placeholder: str = "TBD"
+    search_volume: str = "TBD"
+    keyword_competition_level: str = "TBD"
+    commercial_intent: str = "TBD"
+    priority_score: str = "0"
+    priority_reason: str = ""
     human_review_required: bool = True
     risk_notes: str = ""
     fact_check_items: list[str] = field(default_factory=list)

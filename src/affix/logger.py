@@ -15,6 +15,7 @@ def append_run_logs(log_dir: Path, idea_count: int, draft_count: int) -> None:
         f"\n## {timestamp}\n\n"
         f"- {idea_count}件の記事案を生成しました。\n"
         f"- {draft_count}件のMarkdown下書きを書き出しました。\n"
+        "- ASP案件台帳とキーワード評価を結合し、優先度順に出力しました。\n"
         "- `data/output/` 配下のJSONとCSVを更新しました。\n",
     )
     _append(
@@ -22,6 +23,7 @@ def append_run_logs(log_dir: Path, idea_count: int, draft_count: int) -> None:
         f"\n## {timestamp}\n\n"
         "- 外部ネットワークを使わない前提のため、ローカルCSVを唯一の入力元として扱いました。\n"
         "- 生成されたすべての下書きは、公開前に人間レビューが必要なものとして扱いました。\n"
+        "- ASP案件台帳とキーワード評価にはサンプルまたはTBDが含まれる前提で扱いました。\n"
         "- 安全性、単純さ、テストしやすさを優先して、決定的なテンプレート生成を採用しました。\n",
     )
     _append(
@@ -29,6 +31,7 @@ def append_run_logs(log_dir: Path, idea_count: int, draft_count: int) -> None:
         f"\n## {timestamp}\n\n"
         "- 下書きには最新の商品変更、価格変更、ポリシー変更が反映されていない可能性があります。\n"
         "- アフィリエイトに関する主張は、公開前に公式情報で確認する必要があります。\n"
+        "- サンプルの報酬額、成果条件、キーワード指標は、公開判断前に実データへ置き換える必要があります。\n"
         "- 比較記事でランキングや優劣を表現する場合は、事前に根拠が必要です。\n",
     )
     _append(
@@ -36,6 +39,7 @@ def append_run_logs(log_dir: Path, idea_count: int, draft_count: int) -> None:
         f"\n## {timestamp}\n\n"
         "- 生成されたMarkdown下書きを確認し、事実確認項目をチェックしてください。\n"
         "- 実際のキーワード調査結果を `data/input/keywords.csv` に追加してください。\n"
+        "- ASP管理画面で承認済み案件だけを `data/input/affiliate_programs.csv` に反映してください。\n"
         "- WordPressや静的サイト連携を追加する前に、人間承認つきの公開フローを設計してください。\n",
     )
 

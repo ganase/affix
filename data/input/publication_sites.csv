@@ -1,0 +1,4 @@
+site_id,site_name,site_type,platform,canonical_base_url,status,notes
+ai_dev_tools_guide,AI開発ツール実践ガイド,owned_media,GitHub Pages,https://ganase.github.io/affix/,planned,最初の主公開サイト。独自ドメイン取得後にcanonical_base_urlを更新する
+qiita_tech_memo,Qiita技術メモ,external_platform,Qiita,,secondary,アフィリエイトリンクなしの要約配信用
+zenn_tech_memo,Zenn技術メモ,external_platform,Zenn,,secondary,アフィリエイトリンクなしの要約配信用

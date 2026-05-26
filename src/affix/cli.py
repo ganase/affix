@@ -6,7 +6,7 @@ import argparse
 from pathlib import Path
 
 from .generator import generate_article_ideas
-from .loaders import load_keywords, load_niches
+from .loaders import load_affiliate_programs, load_keyword_metrics, load_keywords, load_niches
 from .logger import append_run_logs
 from .writer import write_csv, write_json, write_markdown_drafts
 
@@ -36,7 +36,9 @@ def generate_command(root: Path) -> int:
     root = root.resolve()
     niches = load_niches(root / "data" / "input" / "niches.csv")
     keywords = load_keywords(root / "data" / "input" / "keywords.csv")
-    ideas = generate_article_ideas(niches, keywords)
+    affiliate_programs = load_affiliate_programs(root / "data" / "input" / "affiliate_programs.csv")
+    keyword_metrics = load_keyword_metrics(root / "data" / "input" / "keyword_metrics.csv")
+    ideas = generate_article_ideas(niches, keywords, affiliate_programs, keyword_metrics)
 
     output_dir = root / "data" / "output"
     drafts_dir = root / "content" / "drafts"

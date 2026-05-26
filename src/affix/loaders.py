@@ -5,7 +5,7 @@ from __future__ import annotations
 import csv
 from pathlib import Path
 
-from .models import Keyword, Niche
+from .models import AffiliateProgram, Keyword, KeywordMetric, Niche
 
 
 NICHE_FIELDS = [
@@ -29,6 +29,29 @@ KEYWORD_FIELDS = [
     "notes",
 ]
 
+AFFILIATE_PROGRAM_FIELDS = [
+    "program_id",
+    "niche_id",
+    "service_name",
+    "asp_name",
+    "reward_type",
+    "reward_amount",
+    "approval_condition",
+    "cookie_days",
+    "official_url",
+    "affiliate_url_placeholder",
+    "notes",
+]
+
+KEYWORD_METRIC_FIELDS = [
+    "keyword_id",
+    "search_volume",
+    "competition_level",
+    "commercial_intent",
+    "priority_score",
+    "notes",
+]
+
 
 def _read_dicts(path: Path, required_fields: list[str]) -> list[dict[str, str]]:
     if not path.exists():
@@ -48,3 +71,17 @@ def load_niches(path: Path) -> list[Niche]:
 
 def load_keywords(path: Path) -> list[Keyword]:
     return [Keyword(**{field: row[field] for field in KEYWORD_FIELDS}) for row in _read_dicts(path, KEYWORD_FIELDS)]
+
+
+def load_affiliate_programs(path: Path) -> list[AffiliateProgram]:
+    return [
+        AffiliateProgram(**{field: row[field] for field in AFFILIATE_PROGRAM_FIELDS})
+        for row in _read_dicts(path, AFFILIATE_PROGRAM_FIELDS)
+    ]
+
+
+def load_keyword_metrics(path: Path) -> list[KeywordMetric]:
+    return [
+        KeywordMetric(**{field: row[field] for field in KEYWORD_METRIC_FIELDS})
+        for row in _read_dicts(path, KEYWORD_METRIC_FIELDS)
+    ]

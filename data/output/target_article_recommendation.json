@@ -1,0 +1,126 @@
+{
+  "generated_at_utc": "2026-05-25T12:35:16Z",
+  "goal": "ターゲット記事と公開先の提案",
+  "recommendation": {
+    "target_article_id": "ai_dev_tools-kw_codex_usage",
+    "target_keyword": "Codex 使い方",
+    "working_title": "Codexの使い方: ローカル開発で安全にAIエージェントを使う始め方",
+    "primary_publication_site": {
+      "site_type": "owned_static_site",
+      "recommended_name": "AI開発ツール実践ガイド",
+      "platform": "GitHub Pages, then custom domain when ready",
+      "reason": "アフィリエイト開示、rel属性、更新履歴、canonical URL、問い合わせ導線を自分で管理できるため。"
+    },
+    "secondary_distribution": [
+      {
+        "site": "Qiita",
+        "usage": "アフィリエイトリンクなしの技術メモ版。本文末に、規約に反しない範囲で自前サイトの詳細版へ案内する。",
+        "caveat": "宣伝広告、販売、SEO、アフィリエイトを主目的に見える投稿は避ける。"
+      },
+      {
+        "site": "Zenn",
+        "usage": "開発者向けの実践メモとして再編集し、商用導線は弱める。",
+        "caveat": "主コンテンツは自前サイトに置き、外部プラットフォームは認知獲得用に限定する。"
+      }
+    ],
+    "content_angle": "初心者向けの単なる操作説明ではなく、ローカルリポジトリでCodexを使う前の安全設定、AGENTS.md運用、承認モード、テスト実行、人間レビューまでを実例で整理する。",
+    "monetization_hypothesis": "直接の価格比較やランキングではなく、AI開発ツール導入支援、開発ワークフロー整備、関連SaaSや学習教材への導線を仮説として置く。",
+    "human_review_required": true
+  },
+  "candidate_scores": [
+    {
+      "article_id": "ai_dev_tools-kw_codex_usage",
+      "keyword": "Codex 使い方",
+      "score": 88,
+      "publish_priority": 1,
+      "reason": "低YMYLで公式情報を確認しやすく、既存ドラフトから最短で高品質化できる。AI開発ツール文脈でサイトの専門性も作りやすい。",
+      "risks": "Codexの対応プラン、モデル、CLI仕様、料金は変わりやすい。公開前と更新時に公式情報の再確認が必要。"
+    },
+    {
+      "article_id": "local_ai_rag-kw_local_rag_build",
+      "keyword": "ローカルRAG 作り方",
+      "score": 78,
+      "publish_priority": 2,
+      "reason": "企業相談につながりやすく、オリジナル検証を入れれば強い記事になる。",
+      "risks": "セキュリティ、個人情報、社内文書管理の注意点が多く、実装検証なしの記事は薄く見えやすい。"
+    },
+    {
+      "article_id": "ai_dev_tools-kw_claude_code_compare",
+      "keyword": "Claude Code 比較",
+      "score": 72,
+      "publish_priority": 3,
+      "reason": "比較検討ニーズは強いが、初回記事としては事実確認と更新負荷が高い。",
+      "risks": "機能、料金、制限、優劣表現が変わりやすく、根拠の薄い比較になりやすい。"
+    },
+    {
+      "article_id": "bi_tools-kw_powerbi_report_server",
+      "keyword": "Power BI Report Server 導入",
+      "score": 68,
+      "publish_priority": 4,
+      "reason": "B2Bリード価値は高いが、ライセンスと導入条件の確認負荷が高い。",
+      "risks": "Microsoftのライセンス条件、Fabric連携、オンプレ要件は変化しやすい。"
+    },
+    {
+      "article_id": "bi_tools-kw_tableau_powerbi",
+      "keyword": "Tableau Power BI 比較",
+      "score": 61,
+      "publish_priority": 5,
+      "reason": "検索需要は見込めるが競合が多く、ランキング断定リスクが高い。",
+      "risks": "価格、機能、優劣、利用者レビューを根拠なく書くと誤認リスクがある。"
+    }
+  ],
+  "site_decision": {
+    "primary": "owned_static_site",
+    "primary_site_name": "AI開発ツール実践ガイド",
+    "primary_url_policy": "最初はGitHub Pagesのプロジェクトサイトまたはユーザーサイトでよい。商用導線が増える段階で独自ドメインへ移す。",
+    "why_not_qiita_primary": "Qiitaは技術知識共有には向くが、規約上、宣伝広告や販売を主目的とする記事、SEOやアフィリエイト目的と見られる投稿は避けるべきため。",
+    "why_not_wordpress_first": "現リポジトリにはWordPress連携が未実装で、自動公開もしない方針。初回は静的サイトのほうが戻しやすい。"
+  },
+  "sources_checked": [
+    {
+      "name": "OpenAI Codex CLI",
+      "url": "https://developers.openai.com/codex/cli",
+      "used_for": "Codex CLIの現在の説明、導入方法、対象読者の確認。"
+    },
+    {
+      "name": "OpenAI Help: Using Codex with your ChatGPT plan",
+      "url": "https://help.openai.com/en/articles/11369540-codex-in-chatgpt-faq",
+      "used_for": "Codexの提供プランと利用条件が変わりやすいことの確認。"
+    },
+    {
+      "name": "Google Search Central: helpful content",
+      "url": "https://developers.google.com/search/docs/fundamentals/creating-helpful-content",
+      "used_for": "検索向けではなく読者向けの有用性、経験、信頼性を重視する方針の確認。"
+    },
+    {
+      "name": "Google Search Central: qualify outbound links",
+      "url": "https://developers.google.com/search/docs/crawling-indexing/qualify-outbound-links",
+      "used_for": "アフィリエイトや広告リンクにrel=sponsoredを使う必要性の確認。"
+    },
+    {
+      "name": "GitHub Docs: GitHub Pages",
+      "url": "https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages",
+      "used_for": "静的サイト公開先としてのGitHub Pagesの妥当性確認。"
+    },
+    {
+      "name": "Qiita Terms",
+      "url": "https://qiita.com/terms",
+      "used_for": "Qiitaを主公開先にしない理由の確認。"
+    }
+  ],
+  "assumptions": [
+    "既存の所有メディア一覧はリポジトリ内に見当たらないため、新規の自前静的サイトを提案対象にした。",
+    "記事は自動公開せず、人間レビュー後に手動公開する前提にした。",
+    "最初の記事は収益性よりも、事実確認しやすさ、安全性、サイト専門性の作りやすさを優先した。"
+  ],
+  "risks": [
+    "Codex関連の機能、プラン、料金、対応環境は変わりやすい。",
+    "AI開発ツール領域は競合が多く、公式情報の要約だけでは検索上の独自性が弱い。",
+    "外部プラットフォームにアフィリエイト目的の投稿をすると規約リスクがある。"
+  ],
+  "next_actions": [
+    "content/drafts/ai_dev_tools-kw_codex_usage.mdを、公式情報と実際のローカル利用手順を含む記事へ具体化する。",
+    "公開前に、Codexのプラン、CLI導入手順、承認モード、安全設定を公式情報で再確認する。",
+    "静的サイト出力の最小実装を追加し、下書きからレビュー済み記事だけを公開対象にする。"
+  ]
+}

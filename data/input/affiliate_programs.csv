@@ -1,0 +1,6 @@
+program_id,niche_id,service_name,asp_name,reward_type,reward_amount,approval_condition,cookie_days,official_url,affiliate_url_placeholder,notes
+sample_ai_dev_tool,ai_dev_tools,sample: AI開発支援SaaS,sample: A8.net,sample: lead,TBD,TBD,TBD,TBD,TBD,サンプル案件。実在の案件名・報酬額・成果条件はASP管理画面で確認してから差し替える
+sample_bi_tool,bi_tools,sample: BI導入支援サービス,sample: ValueCommerce,sample: lead,TBD,TBD,TBD,TBD,TBD,サンプル案件。ライセンス条件や成果条件は捏造しない
+sample_local_rag_service,local_ai_rag,sample: ローカルRAG導入相談,sample: Direct,sample: inquiry,TBD,TBD,TBD,TBD,TBD,サンプル案件。問い合わせ導線として扱い、実報酬は未設定
+sample_b2b_saas,b2b_saas,sample: B2B SaaS,sample: A8.net,sample: signup,TBD,TBD,TBD,TBD,TBD,サンプル案件。広告主名と報酬額は未確認
+sample_online_learning,online_learning,sample: 開発者向け学習教材,sample: もしもアフィリエイト,sample: sale,TBD,TBD,TBD,TBD,TBD,サンプル案件。講座名、価格、報酬条件は未確認

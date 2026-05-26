@@ -23,6 +23,9 @@ ARTICLE_FIELDS = [
     "target_reader",
     "article_outline",
     "affiliate_angle",
+    "reward_amount",
+    "commercial_intent",
+    "priority_score",
     "human_review_required",
     "risk_notes",
 ]
@@ -73,6 +76,29 @@ def render_markdown_draft(idea: ArticleIdea) -> str:
 ## 収益導線
 
 {idea.affiliate_angle}
+
+## 想定案件
+
+- サービス名: {idea.service_name}
+- ASP: {idea.asp_name}
+- 報酬種別: {idea.reward_type}
+- 報酬額: {idea.reward_amount}
+- Cookie日数: {idea.cookie_days}
+- 公式URL: {idea.official_url or "TBD"}
+- アフィリエイトURL: {idea.affiliate_url_placeholder}
+
+## 成果条件
+
+{idea.approval_condition}
+
+## 優先度理由
+
+{idea.priority_reason}
+
+- 検索ボリューム: {idea.search_volume}
+- 競合度: {idea.keyword_competition_level}
+- 商用意図: {idea.commercial_intent}
+- 優先度スコア: {idea.priority_score}
 
 ## 注意事項
 

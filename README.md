@@ -2,12 +2,14 @@
 
 Affixは、アフィリエイトサイト運営を自動化するための最小開発基盤です。
 
-現在の版では、安全性を優先し、記事の完全自動公開ではなく「人間が確認するための記事案とMarkdown下書き」を生成します。ジャンルCSVとキーワードCSVを読み込み、記事案をJSON/CSVで保存し、レビュー用のMarkdown下書きと運用ログを出力します。
+現在の版では、安全性を優先し、記事の完全自動公開ではなく「人間が確認するための記事案とMarkdown下書き」を生成します。ジャンルCSV、キーワードCSV、ASP案件台帳、キーワード評価CSVを読み込み、記事案をJSON/CSVで保存し、レビュー用のMarkdown下書きと運用ログを出力します。
 
 ## Affixが自動化すること
 
 - ジャンル候補の管理
 - キーワード候補の管理
+- ASP案件台帳の管理
+- キーワード評価による記事優先度の整理
 - 記事案の生成
 - レビュー用Markdown下書きの作成
 - アフィリエイト導線案の整理
@@ -36,10 +38,12 @@ cd affix
 
 - `data/input/niches.csv`: 扱うジャンル候補
 - `data/input/keywords.csv`: 記事化したいキーワード候補
+- `data/input/affiliate_programs.csv`: ジャンルに紐づくASP案件候補
+- `data/input/keyword_metrics.csv`: キーワード単位の検索・商用意図・優先度評価
 
 3. 必要に応じてCSVを編集します。
 
-まずはサンプルのまま実行できます。実運用を始める場合は、ジャンル名、キーワード、検索意図、優先度、注意事項を自分のサイト方針に合わせて更新してください。
+まずはサンプルのまま実行できます。実運用を始める場合は、ジャンル名、キーワード、検索意図、優先度、ASP案件、注意事項を自分のサイト方針に合わせて更新してください。実在の報酬額やASP条件は捏造せず、未確認の値は `TBD`、サンプル値は `sample:` と明記してください。
 
 4. 記事案と下書きを生成します。
 
@@ -72,6 +76,8 @@ flowchart TD
 
     H["data/input/niches.csv<br/>ジャンル候補"] --> D
     I["data/input/keywords.csv<br/>キーワード候補"] --> D
+    I2["data/input/affiliate_programs.csv<br/>ASP案件台帳"] --> D
+    I3["data/input/keyword_metrics.csv<br/>キーワード評価"] --> D
 
     D --> J["models.py<br/>ジャンル / キーワード / 記事案"]
     J --> E
@@ -106,7 +112,7 @@ flowchart TD
     classDef c5 fill:#f8f0ff,stroke:#8a5cc2,color:#111;
     classDef c6 fill:#fff0f0,stroke:#cc6666,color:#111;
 
-    class H,I c1;
+    class H,I,I2,I3 c1;
     class B,C,D,E,F,G,J c2;
     class K,L,M,N c3;
     class O,P,Q,R c4;
@@ -129,6 +135,8 @@ affix/
     input/
       niches.csv
       keywords.csv
+      affiliate_programs.csv
+      keyword_metrics.csv
     output/
       article_ideas.json
       article_ideas.csv
@@ -190,13 +198,40 @@ python run_affix.py generate
 
 キーワードは `niche_id` でジャンルに紐づきます。
 
+`data/input/affiliate_programs.csv` には、ジャンル単位のASP案件候補を入れます。
+
+- `program_id`
+- `niche_id`
+- `service_name`
+- `asp_name`
+- `reward_type`
+- `reward_amount`
+- `approval_condition`
+- `cookie_days`
+- `official_url`
+- `affiliate_url_placeholder`
+- `notes`
+
+案件は `niche_id` でジャンルに紐づきます。複数案件がある場合、現時点ではCSVで先に書いた案件を代表案件として記事案に結合します。実在の報酬額、成果条件、Cookie日数、ASP URLは、ASP管理画面で確認するまで `TBD` のままにしてください。
+
+`data/input/keyword_metrics.csv` には、キーワード単位の評価を入れます。
+
+- `keyword_id`
+- `search_volume`
+- `competition_level`
+- `commercial_intent`
+- `priority_score`
+- `notes`
+
+キーワード評価は `keyword_id` でキーワードに紐づきます。記事案は `priority_score` が高い順に出力されます。サンプル評価の場合は `sample: 90` のように、実データではないことが分かる形で記録してください。
+
 ## 出力ファイル
 
-`data/output/article_ideas.json` は、将来の自動化で使いやすい構造化された記事案です。
+`data/output/article_ideas.json` は、将来の自動化で使いやすい構造化された記事案です。ASP案件情報、キーワード評価、`reward_amount`、`commercial_intent`、`priority_score` も含みます。
 
-`data/output/article_ideas.csv` は、表計算ソフトで確認しやすい記事案です。
+`data/output/article_ideas.csv` は、表計算ソフトで確認しやすい記事案です。代表的な評価列として `reward_amount`、`commercial_intent`、`priority_score` を含みます。
 
-`content/drafts/` には、記事案ごとのMarkdown下書きが保存されます。これらはレビュー用であり、自動公開してはいけません。
+`content/drafts/` には、記事案ごとのMarkdown下書きが保存されます。下書きには「想定案件」「成果条件」「優先度理由」が含まれます。これらはレビュー用であり、自動公開してはいけません。
 
 `logs/` には追記型の運用ログが保存されます。
 
@@ -209,7 +244,7 @@ python run_affix.py generate
 
 アフィリエイト記事では、価格、ランキング、機能、公式推薦、口コミを根拠なく書くと、読者を誤解させるリスクがあります。
 
-そのためAffixの生成物は、公開前の下書きとして扱います。金融、健康、医療、保険、法律、投資などのYMYL領域では特に慎重に確認してください。
+そのためAffixの生成物は、公開前の下書きとして扱います。金融、医療、健康、保険、法律、投資などのYMYL領域では `human_review_required` を必ず有効にし、特に慎重に確認してください。
 
 ## 今後の拡張案
 

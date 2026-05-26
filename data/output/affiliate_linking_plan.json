@@ -1,0 +1,99 @@
+{
+  "generated_at_utc": "2026-05-25T12:58:02Z",
+  "goal": "アフィリエイトサイトと記事の紐付け方針",
+  "decision": {
+    "primary_publication_site_id": "ai_dev_tools_guide",
+    "primary_publication_site_name": "AI開発ツール実践ガイド",
+    "candidate_url": "https://ganase.github.io/affix/",
+    "primary_affiliate_network": "A8.net",
+    "primary_article_id": "ai_dev_tools-kw_codex_usage",
+    "primary_article_keyword": "Codex 使い方"
+  },
+  "linking_model": {
+    "site_to_article": "publication_sites.site_id を記事の公開先として持ち、article_id と site_id を article_affiliate_links.csv で紐付ける。",
+    "article_to_program": "article_affiliate_links.program_id から affiliate_programs.program_id を参照する。",
+    "program_to_real_url": "案件承認後に program_id ごとの実アフィリエイトURLを別管理し、記事本文へ差し込む。未承認の間は candidate のまま公開しない。",
+    "external_platform_rule": "Qiita と Zenn には直接のアフィリエイトリンクを置かず、非商用の技術メモから自前サイトの詳細版へ参照リンクする。"
+  },
+  "recommended_article_placements": [
+    {
+      "link_id": "codex_usage_primary_cta",
+      "article_id": "ai_dev_tools-kw_codex_usage",
+      "site_id": "ai_dev_tools_guide",
+      "placement": "body_after_setup_section",
+      "program_id": "own_consulting_lead",
+      "role": "primary_cta",
+      "reason": "Codex自体の公開アフィリエイト案件を前提にせず、導入支援やワークフロー相談を主導線にする。"
+    },
+    {
+      "link_id": "codex_usage_related_tool",
+      "article_id": "ai_dev_tools-kw_codex_usage",
+      "site_id": "ai_dev_tools_guide",
+      "placement": "comparison_section",
+      "program_id": "a8_ai_saas_candidate",
+      "role": "secondary_affiliate",
+      "reason": "A8.netの案件確認後、読者の課題に合う関連SaaSだけを補助導線として置く。"
+    },
+    {
+      "link_id": "codex_usage_learning",
+      "article_id": "ai_dev_tools-kw_codex_usage",
+      "site_id": "ai_dev_tools_guide",
+      "placement": "end_recommended_learning",
+      "program_id": "moshimo_learning_candidate",
+      "role": "secondary_affiliate",
+      "reason": "初学者向けの学習教材が記事意図と合う場合だけ置く。"
+    }
+  ],
+  "tracking_fields_to_add_later": [
+    "affiliate_url",
+    "merchant_name",
+    "campaign_name",
+    "approval_status",
+    "cookie_window",
+    "reward_condition",
+    "last_verified_at",
+    "disclosure_text"
+  ],
+  "assumptions": [
+    "GitHub Pagesの候補URLは origin の ganase/affix から推定した。",
+    "OpenAI Codex自体の直接アフィリエイトは前提にしない。",
+    "ASP案件は管理画面で承認と条件確認が終わるまで candidate として扱う。"
+  ],
+  "risks": [
+    "ASP案件の有無や成果条件はログイン後の管理画面で変わる可能性がある。",
+    "記事本文に未承認案件や未確認の価格を出すと誤認リスクがある。",
+    "外部プラットフォームへ直接アフィリエイトリンクを置くと規約や読者信頼のリスクが高い。"
+  ],
+  "sources_checked": [
+    {
+      "name": "GitHub Pages Docs",
+      "url": "https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages",
+      "used_for": "自前静的サイトの公開先としての確認。"
+    },
+    {
+      "name": "A8.net Help",
+      "url": "https://support.a8.net/a8/as/faq/beginner/",
+      "used_for": "ASP成果発生から確定までの基本フロー確認。"
+    },
+    {
+      "name": "ValueCommerce Affiliate",
+      "url": "https://www.valuecommerce.ne.jp/",
+      "used_for": "補助ASP候補としての広告主カテゴリ確認。"
+    },
+    {
+      "name": "もしもアフィリエイト FAQ",
+      "url": "https://af.moshimo.com/af/www/help",
+      "used_for": "メディア登録とプログラム提携や広告掲載の確認項目把握。"
+    },
+    {
+      "name": "Google Search Central",
+      "url": "https://developers.google.com/search/docs/crawling-indexing/qualify-outbound-links",
+      "used_for": "広告リンクの rel=sponsored 方針確認。"
+    }
+  ],
+  "next_actions": [
+    "A8.netに ai_dev_tools_guide をメディア登録する。",
+    "AI開発ツールまたはSaaS関連案件を検索し、承認条件と広告表現ルールを確認する。",
+    "承認済み案件だけ article_affiliate_links.csv の status を approved に変更し、実URLを別台帳に追加する。"
+  ]
+}
